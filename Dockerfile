@@ -23,5 +23,5 @@ EXPOSE 8082
 
 ENTRYPOINT [ "java", "-jar","/app/app.jar" ]
 
-#docker build --no-cache -t usuario_back .
-# docker run -d --name usuario_back -p 8082:8082 usuario_back
+#docker build --no-cache -t jorgsanchezm/usuario_back:latest .
+# docker run -d --name usuario_back -p 8082:8082 jorgsanchezm/usuario_back
