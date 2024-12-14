@@ -49,7 +49,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     public boolean autenticarUsuario(String correo, String contrasena) {
-        Optional<Usuario> usuario = usuarioRepository.findByCorreoAndContrasena(correo, contrasena);
+        Optional<Usuario> usuario = usuarioRepository.findByCorreoUsuarioAndContrasena(correo, contrasena);
         return usuario.isPresent();
     }
 

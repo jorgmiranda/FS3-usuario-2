@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import com.fs3.service.UsuarioService;
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200") 
 @RequestMapping("/usuarios")
 public class UsuarioController {
     private static final Logger log = LoggerFactory.getLogger(UsuarioController.class);
@@ -79,7 +81,8 @@ public class UsuarioController {
         }
 
         usuarioService.eliminarUsuario(id);
-        return ResponseEntity.ok("Usuario eliminado");
+        // return ResponseEntity.ok("Usuario eliminado");
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/login")

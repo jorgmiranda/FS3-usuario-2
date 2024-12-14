@@ -14,21 +14,35 @@ public class Usuario {
     private Long id;
     @Column(name = "nombre_completo_usuario")
     private String nombreCompleto;
+    @Column(name = "nombre_usuario")
+    private String nombreUsuario;
+    @Column(name = "correo_usuario", unique = true)
+    private String correoUsuario;
+    @Column(name = "direccion_despacho")
+    private String direccionDespacho;
+    @Column(name = "fecha_nacimiento")
+    private String fechaNacimiento;
+    @Column(name = "sesion")
+    private boolean sesionIniciada;
     @Column(name = "contrasena")
     private String contrasena;
-    @Column(name = "correo_usuario", unique = true)
-    private String correo;
+    
     @Column(name = "rol_usuario")
     private String rol;
     
     public Usuario() {
     }
 
-    public Usuario(Long id, String nombreCompleto, String contrasena, String correo, String rol) {
+    public Usuario(Long id, String nombreCompleto, String nombreUsuario, String correoUsuario, String direccionDespacho,
+            String fechaNacimiento, boolean sesionIniciada, String contrasena, String rol) {
         this.id = id;
         this.nombreCompleto = nombreCompleto;
+        this.nombreUsuario = nombreUsuario;
+        this.correoUsuario = correoUsuario;
+        this.direccionDespacho = direccionDespacho;
+        this.fechaNacimiento = fechaNacimiento;
+        this.sesionIniciada = sesionIniciada;
         this.contrasena = contrasena;
-        this.correo = correo;
         this.rol = rol;
     }
 
@@ -48,20 +62,52 @@ public class Usuario {
         this.nombreCompleto = nombreCompleto;
     }
 
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getCorreoUsuario() {
+        return correoUsuario;
+    }
+
+    public void setCorreoUsuario(String correoUsuario) {
+        this.correoUsuario = correoUsuario;
+    }
+
+    public String getDireccionDespacho() {
+        return direccionDespacho;
+    }
+
+    public void setDireccionDespacho(String direccionDespacho) {
+        this.direccionDespacho = direccionDespacho;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public boolean isSesionIniciada() {
+        return sesionIniciada;
+    }
+
+    public void setSesionIniciada(boolean sesionIniciada) {
+        this.sesionIniciada = sesionIniciada;
+    }
+
     public String getContrasena() {
         return contrasena;
     }
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
     }
 
     public String getRol() {
@@ -71,6 +117,8 @@ public class Usuario {
     public void setRol(String rol) {
         this.rol = rol;
     }
+
+    
 }
 
     
