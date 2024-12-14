@@ -2,15 +2,18 @@ package com.fs3;
 
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 
-/**
- * Unit test for simple App.
- */
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @SpringBootTest
-public class AppTest 
-{
+public class AppTest {
+
     @Test
-	void contextLoads() {
-	}
+    public void testMain() {
+        ApplicationContext context = SpringApplication.run(App.class, new String[]{});
+        assertNotNull(context);
+    }
 }
